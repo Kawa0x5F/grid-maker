@@ -2,7 +2,7 @@
     "name": "Grid Maker",
     "build": {
         "dockerfile": "Dockerfile",
-        "context": ".."
+        "context": "."
     },
     "customizations": {
         "vscode": {
@@ -12,6 +12,5 @@
             ]
         }
     },
-    "postCreateCommand": "npm install --prefix app",
-    "remoteUser": "vscode"
+    "postCreateCommand": "npm install --prefix front"
 }
