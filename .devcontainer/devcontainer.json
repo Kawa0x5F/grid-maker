@@ -1,0 +1,17 @@
+{
+    "name": "Grid Maker",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    "postCreateCommand": "npm install --prefix app",
+    "remoteUser": "vscode"
+}
