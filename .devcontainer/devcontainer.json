@@ -1,16 +1,21 @@
 {
     "name": "Grid Maker",
     "build": {
-        "dockerfile": "Dockerfile",
-        "context": "."
+        "dockerfile": "../Dockerfile",
+        "context": ".."
     },
-    "customizations": {
+    "runArgs": [
+        "--platform", "linux/arm64"
+    ],
+    "customizations":{
         "vscode": {
             "extensions": [
                 "rust-lang.rust-analyzer",
-                "esbenp.prettier-vscode"
+                "dbaeumer.vscode-eslint"
             ]
         }
     },
-    "postCreateCommand": "npm install --prefix front"
+    // "remoteUser": "vscode",
+    "postCreateCommand": "",
+    "remoteUser": "node"
 }
