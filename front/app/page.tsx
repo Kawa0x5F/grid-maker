@@ -24,17 +24,8 @@ export default function Home() {
           <div
             key={`${value}_${index}`}
             className="w-16 h-16 bg-white border border-gray-300 hover:bg-gray-200"
-          >
-            value
-          </div>
-
+           />
         )}
-        {/* {Array.from({ length: size * size }, (_, i) => (
-          <div
-            key={`test_${i}`}
-            className="w-16 h-16 bg-white border border-gray-300 hover:bg-gray-200"
-          />
-        ))} */}
       </div>
     </div>
   );
