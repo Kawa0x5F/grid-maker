@@ -5,7 +5,7 @@
         "context": ".."
     },
     "runArgs": [
-        "--platform", "linux/arm64"
+        // "--platform", "linux/arm64"
     ],
     "customizations":{
         "vscode": {
