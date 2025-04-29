@@ -23,7 +23,8 @@ USER node
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path \
     && rustup target add wasm32-unknown-unknown \
     && rustup update \
-    && cargo install wasm-pack
+    && cargo install wasm-pack \
+    && cargo install wasm-bindgen-cli
 
 # Node.js をインストール
 RUN npm install -g next
