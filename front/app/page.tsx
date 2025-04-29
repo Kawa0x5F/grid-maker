@@ -1,6 +1,11 @@
+'use client';
+
+import { useEffect } from "react";
+import { alert_input_size } from '@/app/src/wasm/rust_wasm'
 import '@/app/globals.css'
 
 export default function Home() {
+  // const [size, setSize] = useState("");
   const arr = [
     {name: 'a',},
     {name: 'b',},
@@ -13,6 +18,10 @@ export default function Home() {
     {name: 'i',},
     {name: 'j',},
   ]
+
+  useEffect(() => {
+      alert_input_size(5);
+  }, []);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
