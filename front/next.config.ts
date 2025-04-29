@@ -1,7 +1,16 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  devIndicators: false
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    // WebAssemblyの読み込みを許可
+    asyncWebAssembly: true,
+  },
+  webpack(config) {
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    };
+    return config;
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
