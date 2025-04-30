@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { alert_input_size } from '@/app/src/wasm/rust_wasm'
+import { get_array } from '@/app/src/wasm/rust_wasm'
 import '@/app/globals.css'
 
 export default function Home() {
@@ -21,12 +21,16 @@ export default function Home() {
 
   const handleSizeKeyDown = (e) => {
     if (e.key == 'Enter') { // エンターキーを押されたとき
-      alert_input_size(size);
+      // alert_input_size(size);
+      e.preventDefault()
+      console.log(get_array(size));
     }
   }
 
   const handleSizeSubmitButton = (e) => {
-    alert_input_size(size);
+    // alert_input_size(size);
+    e.preventDefault();
+    console.log(get_array(size));
   }
 
   const handleChangeSize = (e) => {
