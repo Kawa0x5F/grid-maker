@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  devIndicators: false,
   experimental: {
     // WebAssemblyの読み込みを許可
     asyncWebAssembly: true,
