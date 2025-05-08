@@ -53,8 +53,8 @@ export default function Home() {
 
       <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <div
-          className={`grid grid-cols-5 gap-0`}
-          style={{ width: 'fit-content' }}
+          className={`grid grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-0`}
+          style={{ width: 'fit-content', '--cols': size } as React.CSSProperties}
         >
           {array.map((value: number, index: number)=>
             <div
