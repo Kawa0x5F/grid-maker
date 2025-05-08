@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { get_array } from '@/app/src/wasm/rust_wasm'
 import '@/app/globals.css'
 
@@ -8,6 +8,14 @@ export default function Home() {
   const [inputSize, setInputSize] = useState({ row: "5", col: "5"});
   const [size, setSize] = useState({ row: 5, col: 5 });
   const [array, setArray] = useState<number[]>([]);
+
+  useEffect(() => {
+    const row = size.row;
+    const col = size.col;
+
+    const res = get_array(row, col);
+    setArray(Array.from(res));
+  }, [size.row, size.col])
 
   const handleChangeInputSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
