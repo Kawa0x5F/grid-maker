@@ -6,30 +6,21 @@ import '@/app/globals.css'
 
 export default function Home() {
   const [size, setSize] = useState(0);
-  const arr = [
-    {name: 'a',},
-    {name: 'b',},
-    {name: 'c',},
-    {name: 'd',},
-    {name: 'e',},
-    {name: 'f',},
-    {name: 'g',},
-    {name: 'h',},
-    {name: 'i',},
-    {name: 'j',},
-  ]
+  const [array, setArray] = useState<number[]>([]);
 
   const handleSizeKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == 'Enter') { // エンターキーを押されたとき
       e.preventDefault()
-      console.log(get_array(size));
+      const res = get_array(size);
+      setArray(Array.from(res));
     }
   }
 
   const handleSizeSubmitButton = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(get_array(size));
-  }
+    const res = get_array(size);
+    setArray(Array.from(res));
+}
 
   const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
@@ -65,7 +56,7 @@ export default function Home() {
           className={`grid grid-cols-5 gap-0`}
           style={{ width: 'fit-content' }}
         >
-          {arr.map((value: {name: string;}, index: number)=>
+          {array.map((value: number, index: number)=>
             <div
               key={`${value}_${index}`}
               className="w-16 h-16 bg-white border border-gray-300 hover:bg-gray-200"
