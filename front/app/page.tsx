@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { get_array } from '@/app/src/wasm/rust_wasm'
 import '@/app/globals.css'
 
@@ -19,24 +19,22 @@ export default function Home() {
     {name: 'j',},
   ]
 
-  const handleSizeKeyDown = (e) => {
+  const handleSizeKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == 'Enter') { // エンターキーを押されたとき
-      // alert_input_size(size);
       e.preventDefault()
       console.log(get_array(size));
     }
   }
 
-  const handleSizeSubmitButton = (e) => {
-    // alert_input_size(size);
+  const handleSizeSubmitButton = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(get_array(size));
   }
 
-  const handleChangeSize = (e) => {
+  const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-    if (/^\d*$/.test(input)) {
-      setSize(input);
+    if (/^\d*$/.test(input)) { // 文字列が数字のみで構成されているかを見る
+      setSize(Number(input)); // inputは文字列なので数値に変換してset
     }
   }
 
