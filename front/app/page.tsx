@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { get_array } from '@/app/src/wasm/rust_wasm'
+import { get_array } from '@/app/wasm/rust_wasm'
 import '@/app/globals.css'
 
 export default function Home() {
