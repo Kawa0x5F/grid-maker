@@ -7,6 +7,8 @@ import '@/app/globals.css'
 export default function Home() {
   const [inputSize, setInputSize] = useState({ row: "5", col: "5"});
   const [size, setSize] = useState({ row: 5, col: 5 });
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [array, setArray] = useState<number[]>([]);
 
   useEffect(() => {
@@ -21,6 +23,7 @@ export default function Home() {
     const value = e.target.value;
     if (/^\d*$/.test(value)) {
       setInputSize((prev) => ({ ...prev, [e.target.name]: value }));
+      setIsError(false);
     }
   }
 
@@ -29,11 +32,16 @@ export default function Home() {
 
     const row = Number(inputSize.row);
     const col = Number(inputSize.col);
+    if (row <= 0 || row > 100 || col <= 0 || col > 100) {
+      setIsError(true)
+      setErrorMessage("数値は0以上100以下で入力してください");
 
-    setSize({row: row, col:col})
-  
-    const res = get_array(row, col);
-    setArray(Array.from(res));
+    } else {
+      setSize({row: row, col:col})
+    
+      const res = get_array(row, col);
+      setArray(Array.from(res));
+    }
 }
 
   return (
@@ -68,6 +76,7 @@ export default function Home() {
           決定
         </button>
       </form>
+      {isError && <p className="text-red">{ errorMessage }</p>}
 
       <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <div
