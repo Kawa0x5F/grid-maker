@@ -14,10 +14,10 @@ pub fn alert_input_size(size: usize) {
 }
 
 #[wasm_bindgen]
-pub fn get_array(size: usize) -> Vec<i32> {
-    let mut array = Vec::with_capacity(size * size);
-    for _ in 0..size {
-        array.extend(vec![0i32; size]);
+pub fn get_array(r: usize, c: usize) -> Vec<i32> {
+    let mut array = Vec::with_capacity(r * c);
+    for _ in 0..r {
+        array.extend(vec![0i32; c]);
     }
     array
 }
