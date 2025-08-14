@@ -3,9 +3,10 @@ import React from 'react';
 interface GridDisplayProps {
   array: number[];
   size: { row: number; col: number };
+  onCellClick: (index: number) => void;
 }
 
-export const GridDisplay: React.FC<GridDisplayProps> = ({ array, size }) => {
+export const GridDisplay: React.FC<GridDisplayProps> = ({ array, size, onCellClick }) => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div
@@ -15,7 +16,8 @@ export const GridDisplay: React.FC<GridDisplayProps> = ({ array, size }) => {
         {array.map((value: number, index: number) => (
           <div
             key={`${value}_${index}`}
-            className="w-16 h-16 bg-white border border-gray-300 hover:bg-gray-200"
+            className={`w-16 h-16 border border-gray-300 hover:border-black cursor-pointer ${value === 1 ? 'bg-orange-500' : 'bg-white'}`}
+            onClick={() => onCellClick(index)}
           />
         ))}
       </div>

@@ -34,6 +34,13 @@ export const useGridArray = () => {
     }
   };
 
+  const onCellClick =  (index: number) => {
+    const newArray = [...array];
+    newArray[index] = newArray[index] === 0 ? 1 : 0;
+    setArray(newArray);
+  }
+
+
   return {
     inputSize,
     size,
@@ -42,5 +49,6 @@ export const useGridArray = () => {
     array,
     handleChangeInputSize,
     handleSizeSubmitButton,
+    onCellClick,
   };
 };

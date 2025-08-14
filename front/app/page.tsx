@@ -15,6 +15,7 @@ export default function Home() {
     array,
     handleChangeInputSize,
     handleSizeSubmitButton,
+    onCellClick,
   } = useGridArray();
 
   return (
@@ -26,7 +27,7 @@ export default function Home() {
         onChangeInputSize={handleChangeInputSize}
         onSubmit={handleSizeSubmitButton}
       />
-      <GridDisplay array={array} size={size} />
+      <GridDisplay array={array} size={size} onCellClick={onCellClick}/>
     </div>
   );
 }
